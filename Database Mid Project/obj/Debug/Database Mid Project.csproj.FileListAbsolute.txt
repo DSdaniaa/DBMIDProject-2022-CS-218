@@ -1,0 +1,19 @@
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\bin\Debug\Database Mid Project.exe.config
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\bin\Debug\Database Mid Project.exe
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\bin\Debug\Database Mid Project.pdb
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database Mid Project.csproj.AssemblyReference.cache
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Form1.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Properties.Resources.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database Mid Project.csproj.GenerateResource.cache
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database Mid Project.csproj.CoreCompileInputs.cache
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database Mid Project.exe
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database Mid Project.pdb
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.CloTablecs.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Rubric.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.RubricLevel.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Admin.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Assessment.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.AssessmentComponent.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Main.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.StudentResult.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Attendance.resources
