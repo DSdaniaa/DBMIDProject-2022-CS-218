@@ -70,6 +70,12 @@
     <Compile Include="Attendance.Designer.cs">
       <DependentUpon>Attendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="CloReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloReport.Designer.cs">
+      <DependentUpon>CloReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="CloTablecs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloReport.resx">
+      <DependentUpon>CloReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CloTablecs.resx">
       <DependentUpon>CloTablecs.cs</DependentUpon>

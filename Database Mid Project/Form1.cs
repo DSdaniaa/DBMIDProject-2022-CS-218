@@ -114,5 +114,12 @@ namespace Database_Mid_Project
         {
             view();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form moreForm = new Admin();
+            this.Hide();
+            moreForm.Show();
+        }
     }
 }

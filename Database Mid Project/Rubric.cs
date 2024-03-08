@@ -41,27 +41,36 @@ namespace Database_Mid_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into Rubric values (@Details, @CloId)", con);
-            cmd.Parameters.AddWithValue("@Details", textBox2.Text);
-            cmd.Parameters.AddWithValue("@CloId", int.Parse(textBox3.Text));
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully saved");
-            textBox2.Text = "";
-            textBox3.Text = "";
+            if (textBox2.Text == ""|| textBox3.Text == "" || textBox4.Text == "") 
+            {
+                MessageBox.Show("Enter Required Records");
+            }
+            else
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("Insert into Rubric values (@Id,@Details, @CloId)", con);
+                cmd.Parameters.AddWithValue("@Id", int.Parse(textBox4.Text));
+                cmd.Parameters.AddWithValue("@Details", textBox2.Text);
+                cmd.Parameters.AddWithValue("@CloId", int.Parse(textBox3.Text));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully saved");
+                
+            }
             view();
+            textBox2.Text = "";
+            textBox4.Text = "";
+            textBox3.Text = "";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (textBox4.Text != "")
             {
                 var con = Configuration.getInstance().getConnection();
                 SqlCommand cmd = new SqlCommand("UPDATE Rubric SET Details= @Details, CloId=@CloId WHERE Id = @Id", con);
                 cmd.Parameters.AddWithValue("@Details", textBox2.Text);
                 cmd.Parameters.AddWithValue("@CloId", int.Parse(textBox3.Text));
-                cmd.Parameters.AddWithValue("@Id", int.Parse(textBox1.Text));
+                cmd.Parameters.AddWithValue("@Id", int.Parse(textBox4.Text));
                 int rowsAffected = cmd.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
@@ -72,7 +81,7 @@ namespace Database_Mid_Project
                 {
                     MessageBox.Show("Failed to update record. Make sure the ID exists.");
                 }
-                textBox1.Text = "";
+                textBox4.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
             }
@@ -85,11 +94,11 @@ namespace Database_Mid_Project
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (textBox4.Text != "")
             {
                 var con = Configuration.getInstance().getConnection();
                 SqlCommand cmd = new SqlCommand("DELETE FROM Rubric WHERE Id = @Id", con);
-                cmd.Parameters.AddWithValue("@Id", int.Parse(textBox1.Text));
+                cmd.Parameters.AddWithValue("@Id", int.Parse(textBox4.Text));
 
                 int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -101,7 +110,7 @@ namespace Database_Mid_Project
                 {
                     MessageBox.Show("Failed to delete record. Make sure the ID exists.");
                 }
-                textBox1.Text = "";
+                textBox4.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
             }
@@ -173,6 +182,13 @@ namespace Database_Mid_Project
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            Form moreForm = new Admin();
+            this.Hide();
+            moreForm.Show();
         }
     }
 }

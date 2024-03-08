@@ -20,14 +20,9 @@ namespace Database_Mid_Project
 
         private void StudentResult_Load(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Select * from Student", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            view();
             var conn = Configuration.getInstance().getConnection();
-            SqlCommand cmdd = new SqlCommand("Select * from AssessmentComponent", conn);
+            SqlCommand cmdd = new SqlCommand("Select Name from AssessmentComponent", conn);
             SqlDataAdapter daa = new SqlDataAdapter(cmdd);
             DataTable dtt = new DataTable();
             daa.Fill(dtt);
@@ -37,97 +32,193 @@ namespace Database_Mid_Project
             SqlDataAdapter daaa = new SqlDataAdapter(cmddd);
             DataTable dttt = new DataTable();
             daaa.Fill(dttt);
-            dataGridView2.DataSource = dttt;
+            dataGridView3.DataSource = dttt;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into StudentResult values ( @StudenId, @AssessmentComponentId, @RubricMeasurementId,  @GETDATE())", con);
-            cmd.Parameters.AddWithValue("@StudentId", int.Parse(textBox2.Text));
-            cmd.Parameters.AddWithValue("@AssessmentComponentId", int.Parse(textBox3.Text));
-            cmd.Parameters.AddWithValue("@RubricMeasurementId", int.Parse(textBox4.Text));
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully saved");
+            if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
+            {
+
+                var con = Configuration.getInstance().getConnection();
+
+                int StuId, ComId, RubricId;
+                SqlCommand cmd = new SqlCommand("Select Id from Student where RegistrationNumber = @RegistrationNumber and Status=@Status ", con);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", textBox2.Text);
+                cmd.Parameters.AddWithValue("@Status", 5);
+                object result = cmd.ExecuteScalar();
+                SqlCommand cmdd = new SqlCommand("Select Id from AssessmentComponent where Name= @Name", con);
+                cmdd.Parameters.AddWithValue("@Name", textBox3.Text);
+                object resultt = cmdd.ExecuteScalar();
+                SqlCommand cmmd = new SqlCommand("Select Id from RubricLevel where MeasurementLevel= @MeasurementLevel", con);
+                cmmd.Parameters.AddWithValue("@MeasurementLevel", textBox4.Text);
+                object resulttt = cmmd.ExecuteScalar();
+                if (result != null && resultt != null && resulttt != null)
+                {
+                    StuId = int.Parse(result.ToString());
+                    ComId = int.Parse(resultt.ToString());
+                    RubricId = int.Parse(resulttt.ToString());
+                    SqlCommand cm = new SqlCommand("Insert into StudentResult values ( @StudentId, @AssessmentComponentId, @RubricMeasurementId,  GETDATE())", con);
+                    cm.Parameters.AddWithValue("@StudentId", StuId);
+                    cm.Parameters.AddWithValue("@AssessmentComponentId", ComId);
+                    cm.Parameters.AddWithValue("@RubricMeasurementId", RubricId);
+                    cm.ExecuteNonQuery();
+                    MessageBox.Show("Successfully saved");
+                }
+                else
+                {
+                    MessageBox.Show("No Record Exists");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter The Required Information");
+            }
+
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            view();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (textBox2.Text != "" && textBox3.Text != "")
             {
+                int StuId, ComId;
                 var con = Configuration.getInstance().getConnection();
-                SqlCommand cmd = new SqlCommand("DELETE FROM StudentResult WHERE StudentId = @StudentId and AssessmentComponentId=@AssessmentComponentId", con);
-                cmd.Parameters.AddWithValue("@StudentId", int.Parse(textBox2.Text));
-                cmd.Parameters.AddWithValue("@AssessmentComponentId", int.Parse(textBox3.Text));
-
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                SqlCommand cmd = new SqlCommand("Select Id from Student where RegistrationNumber = @RegistrationNumber and Status=@Status ", con);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", textBox2.Text);
+                cmd.Parameters.AddWithValue("@Status", 5);
+                object result = cmd.ExecuteScalar();
+                SqlCommand cmdd = new SqlCommand("Select Id from AssessmentComponent where Name= @Name", con);
+                cmdd.Parameters.AddWithValue("@Name", textBox3.Text);
+                object resultt = cmdd.ExecuteScalar();
+               
+                if (result != null && resultt != null )
                 {
-                    MessageBox.Show("Record deleted successfully!");
+                    StuId = int.Parse(result.ToString());
+                    ComId = int.Parse(resultt.ToString());
+
+
+                    SqlCommand ccmd = new SqlCommand("DELETE FROM StudentResult WHERE StudentId = @StudentId and AssessmentComponentId=@AssessmentComponentId", con);
+                    ccmd.Parameters.AddWithValue("@StudentId", StuId);
+                    ccmd.Parameters.AddWithValue("@AssessmentComponentId", ComId);
+                    int rowsAffected = ccmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Record deleted successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete record. Make sure the ID exists.");
+                    }
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Failed to delete record. Make sure the ID exists.");
+                    MessageBox.Show("No Record Exists");
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
                 }
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
+               
             }
             else
             {
-                MessageBox.Show("Enter The Id");
+                MessageBox.Show("Enter The Required Information");
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
             }
+
+            view();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox2.Text != "" && textBox3.Text != "")
             {
+                int StuId, ComId,RubricId;
                 var con = Configuration.getInstance().getConnection();
-                SqlCommand cmd = new SqlCommand("UPDATE StudentResult SET RubricMeasurementId=@RubricMeasurementId, EvaluationDate=GETDATE() WHERE StudentId = @StudentId and AssessmentComponentId=@AssessmentComponentId", con);
-                cmd.Parameters.AddWithValue("@StudentId", textBox2.Text);
-                cmd.Parameters.AddWithValue("@AssessmentComponentId", int.Parse(textBox3.Text));
-                cmd.Parameters.AddWithValue("@RubricMeasurementId", int.Parse(textBox4.Text));
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                SqlCommand cmd = new SqlCommand("Select Id from Student where RegistrationNumber = @RegistrationNumber and Status=@Status ", con);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", textBox2.Text);
+                cmd.Parameters.AddWithValue("@Status", 5);
+                object result = cmd.ExecuteScalar();
+                SqlCommand cmdd = new SqlCommand("Select Id from AssessmentComponent where Name= @Name", con);
+                cmdd.Parameters.AddWithValue("@Name", textBox3.Text);
+                object resultt = cmdd.ExecuteScalar();
+                SqlCommand cmmd = new SqlCommand("Select Id from RubricLevel where MeasurementLevel= @MeasurementLevel", con);
+                cmmd.Parameters.AddWithValue("@MeasurementLevel", textBox4.Text);
+                object resulttt = cmmd.ExecuteScalar();
+                if (result != null && resultt != null && resulttt != null)
                 {
-                    MessageBox.Show("Record updated successfully!");
+                    StuId = int.Parse(result.ToString());
+                    ComId = int.Parse(resultt.ToString());
+                    RubricId = int.Parse(resulttt.ToString());
+
+                    SqlCommand ccmd = new SqlCommand("UPDATE StudentResult SET RubricMeasurementId=@RubricMeasurementId, EvaluationDate=GETDATE() WHERE StudentId = @StudentId and AssessmentComponentId=@AssessmentComponentId", con);
+                    ccmd.Parameters.AddWithValue("@StudentId", StuId);
+                    ccmd.Parameters.AddWithValue("@AssessmentComponentId", ComId);
+                    ccmd.Parameters.AddWithValue("@RubricMeasurementId", RubricId);
+                    int rowsAffected = ccmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Record updated successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update record. Make sure the ID exists.");
+                    }
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update record. Make sure the ID exists.");
+                    MessageBox.Show("No Record Exists");
+                   
                 }
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
 
             }
             else
             {
-                MessageBox.Show("Enter The Id's");
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
+                MessageBox.Show("Enter The Required Information");
+                
             }
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            view();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void view()
+        {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Select * from StudentId", con);
+            SqlCommand cmd = new SqlCommand("Select * from StudentResult", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridView4.DataSource = dt;
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form moreForm = new Admin();
+            this.Hide();
+            moreForm.Show();
         }
     }
 }

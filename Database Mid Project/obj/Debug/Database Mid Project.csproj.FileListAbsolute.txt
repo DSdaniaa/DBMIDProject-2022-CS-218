@@ -17,3 +17,4 @@ C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\o
 C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Main.resources
 C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.StudentResult.resources
 C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Attendance.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.CloReport.resources

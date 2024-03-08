@@ -28,11 +28,16 @@ namespace Database_Mid_Project
             cmd.ExecuteNonQuery();
             MessageBox.Show("Successfully saved");
             textBox2.Text = "";
+            view();
 
            
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void view()
         {
             var con = Configuration.getInstance().getConnection();
             SqlCommand cmd = new SqlCommand("Select * from Clo", con);
@@ -60,6 +65,7 @@ namespace Database_Mid_Project
             }
 
             textBox2.Text = "";
+            view();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -81,7 +87,20 @@ namespace Database_Mid_Project
 
             textBox2.Text = "";
             textBox1.Text = "";
+            view();
 
+        }
+
+        private void CloTablecs_Load(object sender, EventArgs e)
+        {
+            view();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form moreForm = new Admin();
+            this.Hide();
+            moreForm.Show();
         }
     }
 }

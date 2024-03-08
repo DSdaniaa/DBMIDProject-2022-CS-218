@@ -40,7 +40,7 @@ namespace Database_Mid_Project
             SqlCommand cmd = new SqlCommand("Insert into RubricLevel values ( @RubricId, @Details, @MeasurementLevel)", con);
             cmd.Parameters.AddWithValue("@RubricId", int.Parse(textBox2.Text));
             cmd.Parameters.AddWithValue("@Details", textBox3.Text);
-            cmd.Parameters.AddWithValue("@MeasurmentLevel", int.Parse(textBox4.Text));
+            cmd.Parameters.AddWithValue("@MeasurementLevel", int.Parse(textBox4.Text));
             cmd.ExecuteNonQuery();
             MessageBox.Show("Successfully saved");
             textBox1.Text = "";
@@ -135,6 +135,13 @@ namespace Database_Mid_Project
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form moreForm = new Admin();
+            this.Hide();
+            moreForm.Show();
         }
     }
 }

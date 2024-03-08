@@ -48,7 +48,7 @@ namespace Database_Mid_Project
         private void button1_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into AssessmentComponent values ( @Name, @RubricId, @TotalMarks,  @GETDATE(), @GETDATE(), @AssessmentId)", con);
+            SqlCommand cmd = new SqlCommand("Insert into AssessmentComponent values ( @Name, @RubricId, @TotalMarks,  GETDATE(), GETDATE(), @AssessmentId)", con);
             cmd.Parameters.AddWithValue("@Name", textBox2.Text);
             cmd.Parameters.AddWithValue("@RubricId", int.Parse(textBox3.Text));
             cmd.Parameters.AddWithValue("@TotalMarks", int.Parse(textBox4.Text));
@@ -151,7 +151,14 @@ namespace Database_Mid_Project
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridView3.DataSource = dt;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form moreForm = new Admin();
+            this.Hide();
+            moreForm.Show();
         }
     }
 }

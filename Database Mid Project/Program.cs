@@ -16,7 +16,7 @@ namespace Database_Mid_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Attendance());
+            Application.Run(new Main());
         }
     }
 }

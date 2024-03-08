@@ -52,5 +52,33 @@ namespace Database_Mid_Project
             this.Hide();
             moreForm.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form moreForm = new StudentResult();
+            this.Hide();
+            moreForm.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Form moreForm = new Attendance();
+            this.Hide();
+            moreForm.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form moreForm = new Main();
+            this.Hide();
+            moreForm.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form moreForm = new AssessmentComponent();
+            this.Hide();
+            moreForm.Show();
+        }
     }
 }
