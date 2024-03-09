@@ -102,6 +102,7 @@ namespace Database_Mid_Project
             this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.Resize += new System.EventHandler(this.Main_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

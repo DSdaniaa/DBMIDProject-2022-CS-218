@@ -11,22 +11,15 @@ using System.Windows.Forms;
 
 namespace Database_Mid_Project
 {
-    public partial class CloReport : Form
+    public partial class AttendanceReport : Form
     {
         private System.Drawing.Size originalFormSize;
         private Rectangle Original1;
         private Rectangle Original2;
         private Rectangle Original3;
-
-        
-        public CloReport()
+        public AttendanceReport()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
         private void resize(Rectangle r, Control c)
         {
@@ -41,11 +34,8 @@ namespace Database_Mid_Project
             c.Location = new Point(newX, newY);
             c.Size = new Size(newWidth, newHeight);
         }
-
-
-        private void CloReport_Load(object sender, EventArgs e)
+        private void AttendanceReport_Load(object sender, EventArgs e)
         {
-
             originalFormSize = this.Size;
             Original1 = new Rectangle(dataGridView1.Location.X, dataGridView1.Location.Y, dataGridView1.Width, dataGridView1.Height);
             Original3 = new Rectangle(label1.Location.X, label1.Location.Y, label1.Width, label1.Height);
@@ -53,7 +43,7 @@ namespace Database_Mid_Project
 
 
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand(" WITH MaxMeasurementLevels AS(SELECT RubricId, MAX(CONVERT(FLOAT, MeasurementLevel)) AS MaxMeasurementLevel FROM RubricLevel GROUP BY RubricId) SELECT s.RegistrationNumber,CONCAT(s.FirstName, ' ', s.LastName) AS Name, c.Name As CLOs,sum(ac.TotalMarks) As TotalMarks, SUM((CONVERT(FLOAT, rl.MeasurementLevel) / mml.MaxMeasurementLevel) * CONVERT(FLOAT, ac.TotalMarks) ) AS ObtainedMarks FROM StudentResult sr INNER JOIN RubricLevel rl ON sr.RubricMeasurementId = rl.Id INNER JOIN Rubric r ON rl.RubricId = r.Id INNER JOIN Clo c ON r.CloId = c.Id INNER JOIN Student s ON sr.StudentId = s.Id INNER JOIN AssessmentComponent ac ON sr.AssessmentComponentId = ac.Id INNER JOIN MaxMeasurementLevels mml ON r.Id = mml.RubricId GROUP BY s.RegistrationNumber,CONCAT(s.FirstName, ' ', s.LastName), c.Name; ", con);
+            SqlCommand cmd = new SqlCommand(" select ca.AttendanceDate,s.RegistrationNumber,CONCAT(s.FirstName, ' ', s.LastName) AS Name, lo.Name As Status from Student s join StudentAttendance sa on sa.StudentId = s.Id join ClassAttendance ca on ca.Id = sa.AttendanceId join Lookup lo on sa.AttendanceStatus = lo.LookupId order by ca.AttendanceDate, s.RegistrationNumber; ", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -63,7 +53,6 @@ namespace Database_Mid_Project
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
             dataGridView1.Columns[dataGridView1.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -73,12 +62,11 @@ namespace Database_Mid_Project
             moreForm.Show();
         }
 
-        private void CloReport_Resize(object sender, EventArgs e)
+        private void AttendanceReport_Resize(object sender, EventArgs e)
         {
             resize(Original1, dataGridView1);
             resize(Original2, button2);
             resize(Original3, label1);
-
         }
     }
 }

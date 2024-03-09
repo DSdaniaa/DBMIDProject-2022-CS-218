@@ -45,15 +45,16 @@ namespace Database_Mid_Project
             {
                 int DateID;
                 var con = Configuration.getInstance().getConnection();
-                SqlCommand cmmmd = new SqlCommand("Select  Id from ClassAttendance where AttendanceDate = GETDATE()", con);
+                SqlCommand cmmmd = new SqlCommand("Select  Id from ClassAttendance where AttendanceDate = CAST(GETDATE() As Date)", con);
                 object resultt = cmmmd.ExecuteScalar();
                 if (resultt == null)
                 {
-                    SqlCommand cmddd = new SqlCommand("Insert into ClassAttendance values (GETDATE() )", con);
+                    SqlCommand cmddd = new SqlCommand("Insert into ClassAttendance values (CAST(GETDATE()As Date) )", con);
                     cmddd.ExecuteNonQuery();
-                    SqlCommand cmmd = new SqlCommand("Select  Id from ClassAttendance where AttendanceDate = GETDATE()", con);
+                    SqlCommand cmmd = new SqlCommand("Select  Id from ClassAttendance where AttendanceDate = CAST(GETDATE()As Date)", con);
                     object resulttt = cmmd.ExecuteScalar();
                     DateID = Convert.ToInt32(resulttt);
+
                 }
                 else
                 {

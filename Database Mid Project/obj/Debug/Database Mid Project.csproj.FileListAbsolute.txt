@@ -18,3 +18,8 @@ C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\o
 C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.StudentResult.resources
 C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Attendance.resources
 C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.CloReport.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.Student.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.ComponentReport.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.AssessmentReport.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.AttendanceReport.resources
+C:\DATABASE 4th SEMESTER\Mid Project\Database Mid Project\Database Mid Project\obj\Debug\Database_Mid_Project.RubricReport.resources

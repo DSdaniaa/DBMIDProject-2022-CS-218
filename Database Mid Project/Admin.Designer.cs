@@ -47,7 +47,7 @@ namespace Database_Mid_Project
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Algerian", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(301, 37);
+            this.label1.Location = new System.Drawing.Point(274, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(199, 35);
@@ -180,6 +180,8 @@ namespace Database_Mid_Project
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
+            this.Resize += new System.EventHandler(this.Admin_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

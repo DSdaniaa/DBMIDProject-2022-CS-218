@@ -64,11 +64,23 @@
     <Compile Include="AssessmentComponent.Designer.cs">
       <DependentUpon>AssessmentComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssessmentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssessmentReport.Designer.cs">
+      <DependentUpon>AssessmentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Attendance.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Attendance.Designer.cs">
       <DependentUpon>Attendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttendanceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttendanceReport.Designer.cs">
+      <DependentUpon>AttendanceReport.cs</DependentUpon>
     </Compile>
     <Compile Include="CloReport.cs">
       <SubType>Form</SubType>
@@ -81,6 +93,12 @@
     </Compile>
     <Compile Include="CloTablecs.Designer.cs">
       <DependentUpon>CloTablecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComponentReport.Designer.cs">
+      <DependentUpon>ComponentReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs" />
     <Compile Include="Form1.cs">
@@ -109,6 +127,18 @@
     <Compile Include="RubricLevel.Designer.cs">
       <DependentUpon>RubricLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="RubricReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RubricReport.Designer.cs">
+      <DependentUpon>RubricReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,14 +154,23 @@
     <EmbeddedResource Include="AssessmentComponent.resx">
       <DependentUpon>AssessmentComponent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AssessmentReport.resx">
+      <DependentUpon>AssessmentReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttendanceReport.resx">
+      <DependentUpon>AttendanceReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CloReport.resx">
       <DependentUpon>CloReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CloTablecs.resx">
       <DependentUpon>CloTablecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponentReport.resx">
+      <DependentUpon>ComponentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -154,6 +193,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RubricLevel.resx">
       <DependentUpon>RubricLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RubricReport.resx">
+      <DependentUpon>RubricReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentResult.resx">
       <DependentUpon>StudentResult.cs</DependentUpon>

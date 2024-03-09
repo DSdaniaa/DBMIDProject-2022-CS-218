@@ -215,7 +215,6 @@ namespace Database_Mid_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Database_Mid_Project.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
@@ -237,6 +236,7 @@ namespace Database_Mid_Project
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

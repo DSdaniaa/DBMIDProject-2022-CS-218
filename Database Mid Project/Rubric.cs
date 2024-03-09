@@ -13,6 +13,7 @@ namespace Database_Mid_Project
 {
     public partial class Rubric : Form
     {
+      
         public Rubric()
         {
             InitializeComponent();
@@ -189,6 +190,11 @@ namespace Database_Mid_Project
             Form moreForm = new Admin();
             this.Hide();
             moreForm.Show();
+        }
+
+        private void Rubric_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }

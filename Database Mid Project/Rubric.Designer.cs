@@ -237,6 +237,7 @@ namespace Database_Mid_Project
             this.Name = "Rubric";
             this.Text = "`";
             this.Load += new System.EventHandler(this.Rubric_Load);
+            this.Resize += new System.EventHandler(this.Rubric_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
