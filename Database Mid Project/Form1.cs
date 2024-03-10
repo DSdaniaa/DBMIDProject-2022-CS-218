@@ -61,51 +61,69 @@ namespace Database_Mid_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("Insert into Student values (@FirstName, @LastName, @Contact, @Email, @RegistrationNumber, @Status)", con);
-            cmd.Parameters.AddWithValue("@FirstName", textBox2.Text);
-            cmd.Parameters.AddWithValue("@LastName", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Contact", textBox4.Text);
-            cmd.Parameters.AddWithValue("@Email", textBox5.Text);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", textBox6.Text);
-            cmd.Parameters.AddWithValue("@Status", 5);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Successfully saved");
+            if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
+            {
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("Insert into Student values (@FirstName, @LastName, @Contact, @Email, @RegistrationNumber, @Status)", con);
+                cmd.Parameters.AddWithValue("@FirstName", textBox2.Text);
+                cmd.Parameters.AddWithValue("@LastName", textBox3.Text);
+                cmd.Parameters.AddWithValue("@Contact", textBox4.Text);
+                cmd.Parameters.AddWithValue("@Email", textBox5.Text);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", textBox6.Text);
+                cmd.Parameters.AddWithValue("@Status", 5);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Successfully saved");
+                
+                view();
+            }
+            else
+            {
+                MessageBox.Show("Enter All Required Information");
+
+            }
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
-            view();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("UPDATE Student SET FirstName= @FirstName, LastName= @LastName, Contact= @Contact, Email= @Email, Status=@Status WHERE RegistrationNumber=@RegistrationNumber", con);
-            cmd.Parameters.AddWithValue("@FirstName", textBox2.Text);
-            cmd.Parameters.AddWithValue("@LastName", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Contact", textBox4.Text);
-            cmd.Parameters.AddWithValue("@Email", textBox5.Text);
-            cmd.Parameters.AddWithValue("@RegistrationNumber", textBox6.Text);
-            cmd.Parameters.AddWithValue("@Status", 5);
-            int rowsAffected = cmd.ExecuteNonQuery();
-
-            if (rowsAffected > 0)
+            if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
             {
-                MessageBox.Show("Record updated successfully!");
+                var con = Configuration.getInstance().getConnection();
+                SqlCommand cmd = new SqlCommand("UPDATE Student SET FirstName= @FirstName, LastName= @LastName, Contact= @Contact, Email= @Email, Status=@Status WHERE RegistrationNumber=@RegistrationNumber", con);
+                cmd.Parameters.AddWithValue("@FirstName", textBox2.Text);
+                cmd.Parameters.AddWithValue("@LastName", textBox3.Text);
+                cmd.Parameters.AddWithValue("@Contact", textBox4.Text);
+                cmd.Parameters.AddWithValue("@Email", textBox5.Text);
+                cmd.Parameters.AddWithValue("@RegistrationNumber", textBox6.Text);
+                cmd.Parameters.AddWithValue("@Status", 5);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Record updated successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update record. Make sure the Registration Number exists.");
+                }
+
+               
+                view();
             }
             else
             {
-                MessageBox.Show("Failed to update record. Make sure the Registration Number exists.");
-            }
+                MessageBox.Show("Enter All Required Information");
 
+            }
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
-            view();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -126,6 +144,11 @@ namespace Database_Mid_Project
                 MessageBox.Show("Failed to update attribute. Make sure the Registration Number exists.");
             }
             view();
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)

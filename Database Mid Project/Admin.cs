@@ -23,6 +23,9 @@ namespace Database_Mid_Project
         private Rectangle Original8;
         private Rectangle Original9;
         private Rectangle Original10;
+        private Rectangle Original11;
+
+
         public Admin()
         {
             InitializeComponent();
@@ -116,6 +119,7 @@ namespace Database_Mid_Project
             resize(Original8, button7);
             resize(Original9, button8);
             resize(Original10, button9);
+            resize(Original11, button10);
 
         }
 
@@ -132,8 +136,15 @@ namespace Database_Mid_Project
             Original8 = new Rectangle(button7.Location.X, button7.Location.Y, button7.Width, button7.Height);
             Original9 = new Rectangle(button8.Location.X, button8.Location.Y, button8.Width, button8.Height);
             Original10 = new Rectangle(button9.Location.X, button9.Location.Y, button9.Width, button9.Height);
+            Original11 = new Rectangle(button10.Location.X, button10.Location.Y, button10.Width, button10.Height);
 
+        }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Form moreForm = new Student();
+            this.Hide();
+            moreForm.Show();
         }
     }
 }

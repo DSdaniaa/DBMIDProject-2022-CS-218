@@ -39,6 +39,7 @@ namespace Database_Mid_Project
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +82,7 @@ namespace Database_Mid_Project
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("PMingLiU-ExtB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(71, 197);
+            this.button3.Location = new System.Drawing.Point(71, 195);
             this.button3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(153, 80);
@@ -105,7 +106,7 @@ namespace Database_Mid_Project
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("PMingLiU-ExtB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(328, 199);
+            this.button5.Location = new System.Drawing.Point(328, 197);
             this.button5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(154, 76);
@@ -117,7 +118,7 @@ namespace Database_Mid_Project
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("PMingLiU-ExtB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(204, 287);
+            this.button6.Location = new System.Drawing.Point(70, 287);
             this.button6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(154, 76);
@@ -129,7 +130,7 @@ namespace Database_Mid_Project
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("PMingLiU-ExtB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(454, 287);
+            this.button7.Location = new System.Drawing.Point(328, 287);
             this.button7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(154, 76);
@@ -142,7 +143,7 @@ namespace Database_Mid_Project
             // 
             this.button8.BackColor = System.Drawing.Color.Transparent;
             this.button8.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(12, 324);
+            this.button8.Location = new System.Drawing.Point(12, 21);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(102, 39);
             this.button8.TabIndex = 100;
@@ -153,7 +154,7 @@ namespace Database_Mid_Project
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("PMingLiU-ExtB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(576, 201);
+            this.button9.Location = new System.Drawing.Point(576, 197);
             this.button9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(154, 76);
@@ -162,11 +163,24 @@ namespace Database_Mid_Project
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("PMingLiU-ExtB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(577, 287);
+            this.button10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(154, 76);
+            this.button10.TabIndex = 102;
+            this.button10.Text = "See Student Reports";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 375);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -199,5 +213,6 @@ namespace Database_Mid_Project
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }

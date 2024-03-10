@@ -46,8 +46,6 @@ namespace Database_Mid_Project
             Original2 = new Rectangle(button2.Location.X, button2.Location.Y, button2.Width, button2.Height);
             
           
-            WindowState = FormWindowState.Maximized;
-
 
             var con = Configuration.getInstance().getConnection();
             SqlCommand cmd = new SqlCommand("select s.RegistrationNumber, CONCAT(s.FirstName,' ', s.LastName ) As Name,r.Details As Rubrics, rl.MeasurementLevel As ComponentLevels,rl.Details As Details FROM StudentResult sr INNER JOIN RubricLevel rl ON sr.RubricMeasurementId = rl.Id INNER JOIN Rubric r ON rl.RubricId = r.Id INNER JOIN Clo c ON r.CloId = c.Id INNER JOIN Student s ON sr.StudentId = s.Id INNER JOIN AssessmentComponent ac ON sr.AssessmentComponentId = ac.Id order by s.RegistrationNumber;  ", con);
